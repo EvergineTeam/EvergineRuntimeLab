@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<GenerateEvergineContent>True</GenerateEvergineContent>
+		<GenerateEvergineAssets>False</GenerateEvergineAssets>
+		<GenerateEvergineScenesCode>True</GenerateEvergineScenesCode>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Remove="Features\RuntimeAssets\Loaders\CADRuntimeLoader.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Evergine.Common" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Components" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Framework" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Mathematics" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Bullet" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Targets" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.CodeScenes" Version="2025.10.3.193-nightly" />
+	</ItemGroup>
+
+	<!--Runtimes-->
+	<ItemGroup>
+		<!--<PackageReference Include="Evergine.Runtimes.CAD" Version="2025.10.3.193-nightly" />-->
+		<PackageReference Include="Evergine.Runtimes.Image" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Runtimes.GLB" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Runtimes.STL" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Runtimes.USD" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Runtimes.IFC" Version="2025.10.3.193-nightly" />
+		<PackageReference Include="Evergine.Runtimes.OBJ" Version="2025.10.3.193-nightly" />
+	</ItemGroup>
+</Project>
