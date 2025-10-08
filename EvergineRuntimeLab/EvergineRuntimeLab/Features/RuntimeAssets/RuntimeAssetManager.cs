@@ -9,6 +9,7 @@ using Evergine.Framework.Services;
 using Evergine.Mathematics;
 using EvergineRuntimeLab.Features.Camera;
 using EvergineRuntimeLab.Features.RuntimeAssets.Loaders;
+using EvergineRuntimeLab.Features.UI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -34,6 +35,8 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
 
         private DirectionalLight light;
 
+        private UIComponent uIComponent;
+
         public float CameraResetZoom = 2f;
 
         [RenderPropertyAsFInput(typeof(FloatRadianToDegreeConverter), MinLimit = -90, MaxLimit = 90, AsSlider = true, DesiredChange = 1, DesiredLargeChange = 5)]
@@ -46,9 +49,6 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
 
         protected override bool OnAttached()
         {
-            this.orbitCameraBehavior = this.Managers.EntityManager.FindFirstComponentOfType<OrbitCameraBehavior>();
-            this.light = this.Managers.EntityManager.FindFirstComponentOfType<DirectionalLight>(isExactType: false);
-
             // Register runtimes
             this.runtimeLoaders.Add(new GLBRuntimeLoader(this));
             this.runtimeLoaders.Add(new STLRuntimeLoader(this));
@@ -57,6 +57,22 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
             this.runtimeLoaders.Add(new IMGRuntimeLoader(this));
             this.runtimeLoaders.Add(new IFCRuntimeLoader(this));
             //this.runtimeLoaders.Add(new CADRuntimeLoader(this));
+
+            this.orbitCameraBehavior = this.Managers.EntityManager.FindFirstComponentOfType<OrbitCameraBehavior>();
+            this.light = this.Managers.EntityManager.FindFirstComponentOfType<DirectionalLight>(isExactType: false);
+            this.uIComponent = this.Managers.EntityManager.FindFirstComponentOfType<UIComponent>();
+
+            var extensionsByType = this.runtimeLoaders
+                .GroupBy(l => l.LoaderType)
+                .ToDictionary(
+                    g => g.Key,
+                    g => g.SelectMany(l => l.SupportedExtensions)
+                          .Distinct(StringComparer.OrdinalIgnoreCase)
+                          .OrderBy(e => e)
+                          .ToArray());
+
+            this.uIComponent.SetSuportedFiles(extensionsByType);
+
 
             // Register to application events
             MyApplication.OnNewRuntimeAsset += OnNewRuntimeAsset;
@@ -68,6 +84,8 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
         protected override void Start()
         {
             base.Start();
+
+            this.uIComponent.IsEnabled = true;
 
             this.CenterCamera();
         }
@@ -155,6 +173,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
             this.Managers.EntityManager.Add(this.currentLoad.Entity);
 
             this.CenterCamera();
+            this.uIComponent.IsEnabled = false;
         }
 
         private void CenterCamera()

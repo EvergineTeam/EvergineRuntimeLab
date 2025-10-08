@@ -45,10 +45,10 @@ Items:
         ShadowDistance: 80.0
         ShadowOpacity: 1.0
         SplitDistance:
-          - 8.375
-          - 17.375
-          - 40.5
-          - 138.375
+          - 8.5
+          - 17.625
+          - 41.25
+          - 141.0
         Temperature: 6500.0
       - !Evergine.Framework.Graphics.SunComponent,Evergine.Framework
         Id: 6f2b70f3-a505-49a6-9454-130b04d48cd3
@@ -81,7 +81,7 @@ Items:
         Id: bb44cd62-4d92-418a-8a42-bbc2ed2b6f07
         AsignedTo: Default
         IsEnabled: true
-        Material: 3a344055-766b-42e4-be15-ca852b52525a
+        Material: aa2148f1-73db-430f-a453-a59c3cff8d8e
         UseCopy: false
       - !Evergine.Components.Graphics3D.SphereMesh,Evergine.Components
         Id: 3ef37285-f016-4173-bbf0-278ec1624224
@@ -218,6 +218,34 @@ Items:
         Children: []
         Id: 3a521f3a-3a07-43a4-9a3e-292d44ee184e
     Id: feaf1063-b7f3-4fb5-8cba-85a4b9c2175e
+  - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+    Name: UI
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+        Id: d757cfec-04df-4c65-a7d7-0526f5da5691
+        IsEnabled: true
+        LocalOrientation:
+          W: 1.0
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalPosition:
+          X: 4.15283489
+          Y: 1.55199039
+          Z: 4.61073494
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !EvergineRuntimeLab.Features.UI.UIComponent,EvergineRuntimeLab
+        Id: 67276af1-123b-443b-b40c-56014e39477a
+        IsEnabled: true
+        UpdateOrder: 0.5
+    Children: []
+    Id: 31ddc23f-5f94-4e76-af54-9551091ef6a8
 Managers:
   - !Evergine.Framework.Managers.AssetSceneManager,Evergine.Framework
     Id: 4ae9964a-5a8a-463f-b714-050389b3b68c
@@ -248,4 +276,7 @@ Managers:
     SpotResolution: Size_512
   - !EvergineRuntimeLab.Features.RuntimeAssets.RuntimeAssetManager,EvergineRuntimeLab
     Id: 8a514e7f-4b1d-43a0-884a-561ad363c392
+    CameraResetLambda: 0.436332315
+    CameraResetZoom: 2.0
     IsEnabled: true
+    cameraResetTheta: -0.436332315

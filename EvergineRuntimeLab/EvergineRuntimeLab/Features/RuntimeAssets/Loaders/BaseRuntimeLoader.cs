@@ -4,12 +4,24 @@ using Evergine.Framework.Services;
 using Evergine.Mathematics;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 {
+    public enum RuntimeLoaderType
+    {
+        [Description("3D Models")]
+        Model,
+        [Description("CAD files")]
+        CAD,
+        [Description("Images")]
+        Image,
+        Unknown
+    }
+
     public class RuntimeLoadResult
     {
         public bool IsValid;
@@ -19,7 +31,9 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 
     public abstract class BaseRuntimeLoader
     {
-        internal abstract string[] SupportedExtensions { get; }
+        public abstract RuntimeLoaderType LoaderType { get; }
+
+        public abstract string[] SupportedExtensions { get; }
 
         internal RuntimeAssetManager runtimeAssetManager;
         public BaseRuntimeLoader(RuntimeAssetManager runtimeAssetManager)

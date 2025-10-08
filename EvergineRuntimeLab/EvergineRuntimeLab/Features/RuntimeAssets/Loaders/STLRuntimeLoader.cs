@@ -11,7 +11,9 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 {
     public class STLRuntimeLoader : BaseRuntimeLoader
     {
-        internal override string[] SupportedExtensions { get; } = new[] { ".stl" };
+        public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.Model;
+
+        public override string[] SupportedExtensions { get; } = new[] { ".stl" };
 
         public STLRuntimeLoader(RuntimeAssetManager runtimeAssetManager) 
             : base(runtimeAssetManager)

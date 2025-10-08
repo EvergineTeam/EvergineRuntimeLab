@@ -14,7 +14,9 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 {
     public class CADRuntimeLoader : BaseRuntimeLoader
     {
-        internal override string[] SupportedExtensions { get; } = new[] { ".dxf", ".dwg" };
+        public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.CAD;
+
+        public override string[] SupportedExtensions { get; } = new[] { ".dxf", ".dwg" };
 
         public CADRuntimeLoader(RuntimeAssetManager runtimeAssetManager)
             : base(runtimeAssetManager)

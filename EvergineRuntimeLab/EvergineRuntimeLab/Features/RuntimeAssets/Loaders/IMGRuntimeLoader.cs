@@ -19,7 +19,9 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 {
     public class IMGRuntimeLoader : BaseRuntimeLoader
     {
-        internal override string[] SupportedExtensions { get; } = new[] { ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".ktx", ".ktx2", ".webp", ".gif", ".ico" };
+        public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.Image;
+
+        public override string[] SupportedExtensions { get; } = new[] { ".jpg", ".jpeg", ".png", ".bmp", ".gif", ".ktx", ".ktx2", ".webp", ".gif", ".ico" };
 
         private StandardMaterial material;
 

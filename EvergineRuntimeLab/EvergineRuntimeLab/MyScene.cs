@@ -14,7 +14,8 @@ namespace EvergineRuntimeLab
             base.RegisterManagers();
             
             this.Managers.AddManager(new global::Evergine.Bullet.BulletPhysicManager3D());
-            
+            this.Managers.AddManager(new global::Evergine.UI.ImGuiManager());
+
         }
 
         protected override void CreateScene()

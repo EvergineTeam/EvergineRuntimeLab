@@ -11,7 +11,9 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 {
     public class GLBRuntimeLoader : BaseRuntimeLoader
     {
-        internal override string[] SupportedExtensions { get; } = new[] { ".glb" };
+        public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.Model;
+
+        public override string[] SupportedExtensions { get; } = new[] { ".glb" };
 
         public GLBRuntimeLoader(RuntimeAssetManager runtimeAssetManager) 
             : base(runtimeAssetManager)

@@ -11,7 +11,9 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 {
     public class USDRuntimeLoader : BaseRuntimeLoader
     {
-        internal override string[] SupportedExtensions { get; } = new[] { ".usdz" };
+        public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.Model;
+
+        public override string[] SupportedExtensions { get; } = new[] { ".usdz" };
 
         public USDRuntimeLoader(RuntimeAssetManager runtimeAssetManager) 
             : base(runtimeAssetManager)

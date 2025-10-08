@@ -11,7 +11,9 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 {
     public class OBJRuntimeLoader : BaseRuntimeLoader
     {
-        internal override string[] SupportedExtensions { get; } = new[] { ".obj" };
+        public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.Model;
+
+        public override string[] SupportedExtensions { get; } = new[] { ".obj" };
 
         public OBJRuntimeLoader(RuntimeAssetManager runtimeAssetManager) 
             : base(runtimeAssetManager)
