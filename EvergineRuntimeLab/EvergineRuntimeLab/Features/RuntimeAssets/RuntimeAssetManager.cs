@@ -60,8 +60,8 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
 
             this.orbitCameraBehavior = this.Managers.EntityManager.FindFirstComponentOfType<OrbitCameraBehavior>();
             this.light = this.Managers.EntityManager.FindFirstComponentOfType<DirectionalLight>(isExactType: false);
-            this.uIComponent = this.Managers.EntityManager.FindFirstComponentOfType<UIComponent>();
 
+            // Setup supported extensions in UI
             var extensionsByType = this.runtimeLoaders
                 .GroupBy(l => l.LoaderType)
                 .ToDictionary(
@@ -71,6 +71,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
                           .OrderBy(e => e)
                           .ToArray());
 
+            this.uIComponent = this.Managers.EntityManager.FindFirstComponentOfType<UIComponent>();
             this.uIComponent.SetSuportedFiles(extensionsByType);
 
 
