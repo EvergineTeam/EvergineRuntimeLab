@@ -27,6 +27,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
             using var fileStream = File.OpenRead(path);
             if (fileStream != null)
             {
+                OBJRuntime.Instance.WorkingDirectory = Path.GetDirectoryName(path);
                 var model = await OBJRuntime.Instance.Read(fileStream);
 
                 if (model != null)

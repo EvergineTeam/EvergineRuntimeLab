@@ -13,7 +13,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
     {
         public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.Model;
 
-        public override string[] SupportedExtensions { get; } = new[] { ".usdz" };
+        public override string[] SupportedExtensions { get; } = new[] { ".usdz", ".usda" };
 
         public USDRuntimeLoader(RuntimeAssetManager runtimeAssetManager) 
             : base(runtimeAssetManager)
@@ -24,10 +24,8 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
         {
             RuntimeLoadResult result = new RuntimeLoadResult();
 
-            using var fileStream = File.OpenRead(path);
-            if (fileStream != null)
             {
-                var model = await USDRuntime.Instance.Read(fileStream);
+                var model = await USDRuntime.Instance.Read(path);
 
                 if (model != null)
                 {

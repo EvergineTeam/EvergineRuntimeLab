@@ -11,7 +11,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 {
     public class IFCRuntimeLoader : BaseRuntimeLoader
     {
-        public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.Model;
+        public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.CAD;
 
         public override string[] SupportedExtensions { get; } = new[] { ".ifc" };
 
