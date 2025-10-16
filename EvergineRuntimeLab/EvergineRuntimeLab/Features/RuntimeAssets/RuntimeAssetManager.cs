@@ -56,7 +56,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
             this.runtimeLoaders.Add(new USDRuntimeLoader(this));
             this.runtimeLoaders.Add(new IMGRuntimeLoader(this));
             this.runtimeLoaders.Add(new IFCRuntimeLoader(this));
-            //this.runtimeLoaders.Add(new CADRuntimeLoader(this));
+            this.runtimeLoaders.Add(new CADRuntimeLoader(this));
 
             this.orbitCameraBehavior = this.Managers.EntityManager.FindFirstComponentOfType<OrbitCameraBehavior>();
             this.light = this.Managers.EntityManager.FindFirstComponentOfType<DirectionalLight>(isExactType: false);

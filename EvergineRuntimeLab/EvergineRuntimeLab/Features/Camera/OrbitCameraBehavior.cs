@@ -240,7 +240,6 @@ namespace EvergineRuntimeLab.Features.Camera
             }
 
             this.zoom *= deltaZoom;
-            this.zoom = Math.Max(this.MaxZoom, Math.Min(this.MinZoom, this.zoom));
 
             // Update the transform...
             float elapsedMilliseconds = (float)clock.ElapseTime.TotalMilliseconds;
