@@ -6,6 +6,7 @@ using Evergine.Framework;
 using Evergine.Framework.Graphics;
 using Evergine.Framework.Managers;
 using Evergine.Framework.Services;
+using Evergine.Framework.Threading;
 using Evergine.Mathematics;
 using EvergineRuntimeLab.Features.Camera;
 using EvergineRuntimeLab.Features.RuntimeAssets.Loaders;
@@ -17,6 +18,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EvergineRuntimeLab.Features.UI.UIComponent;
 
 namespace EvergineRuntimeLab.Features.RuntimeAssets
 {
@@ -73,7 +75,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
 
             this.uIComponent = this.Managers.EntityManager.FindFirstComponentOfType<UIComponent>();
             this.uIComponent.SetSuportedFiles(extensionsByType);
-
+            this.uIComponent.CurrentMode = UIMode.Init;
 
             // Register to application events
             MyApplication.OnNewRuntimeAsset += OnNewRuntimeAsset;
@@ -125,34 +127,45 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
             return this.runtimeLoaders.Any(loader => loader.CanProcess(filePath));
         }
 
-        private async void OnNewRuntimeAsset(object sender, string path)
-        {    
-            var loader = runtimeLoaders.FirstOrDefault(l => l.CanProcess(path));
-            if (loader != null)
+        private void OnNewRuntimeAsset(object sender, string path)
+        {
+            Task.Run(async () =>
             {
-                try
+                var loader = runtimeLoaders.FirstOrDefault(l => l.CanProcess(path));
+                if (loader != null)
                 {
-                    var result = await loader.LoadAsset(path);
-                 
-                    if (result.IsValid && result.Entity != null)
+                    try
                     {
-                        Debug.WriteLine($"[RuntimeAssetManager] Loaded asset from {path}");
-                        this.RuntimeAssetLoaded(result);
+                        this.uIComponent.CurrentMode = UIMode.Loading;
+                        var result = await loader.LoadAsset(path);
+
+                        await EvergineForegroundTask.Run(() =>
+                        {
+                            if (result.IsValid && result.Entity != null)
+                            {
+                                Debug.WriteLine($"[RuntimeAssetManager] Loaded asset from {path}");
+                                this.RuntimeAssetLoaded(result);
+                            }
+                            else
+                            {
+                                Debug.WriteLine($"[RuntimeAssetManager] Failed to load asset from {path}");
+                                this.uIComponent.CurrentMode = UIMode.Init;
+                            }
+                        });
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        Debug.WriteLine($"[RuntimeAssetManager] Failed to load asset from {path}");
+                        Trace.TraceError($"[RuntimeAssetManager] Exception loading asset from {path}: {ex.Message}");
+                        this.uIComponent.CurrentMode = UIMode.Init;
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Trace.TraceError($"[RuntimeAssetManager] Exception loading asset from {path}: {ex.Message}");
+                    Debug.WriteLine($"[RuntimeAssetManager] No loader available for asset from {path}");
                 }
-            }
-            else
-            {
-                Debug.WriteLine($"[RuntimeAssetManager] No loader available for asset from {path}");
-            }
+
+                this.uIComponent.CurrentMode = UIMode.Loaded;
+            });
         }
 
         private void RuntimeAssetLoaded(RuntimeLoadResult result)
@@ -160,7 +173,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
             if (this.currentLoad?.IsValid == true)
             {
                 this.Managers.EntityManager.Remove(this.currentLoad.Entity);
-                this.currentLoad= null;
+                this.currentLoad = null;
             }
 
             var animation = result.Entity.FindComponent<Animation3D>();
@@ -171,10 +184,9 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
             }
 
             this.currentLoad = result;
-            this.Managers.EntityManager.Add(this.currentLoad.Entity);
 
+            this.Managers.EntityManager.Add(this.currentLoad.Entity);
             this.CenterCamera();
-            this.uIComponent.IsEnabled = false;
         }
 
         private void CenterCamera()
