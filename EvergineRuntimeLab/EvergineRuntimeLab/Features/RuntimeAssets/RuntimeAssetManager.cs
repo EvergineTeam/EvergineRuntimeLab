@@ -139,19 +139,19 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
                         this.uIComponent.CurrentMode = UIMode.Loading;
                         var result = await loader.LoadAsset(path);
 
-                        await EvergineForegroundTask.Run(() =>
+                        if (result.IsValid && result.Entity != null)
                         {
-                            if (result.IsValid && result.Entity != null)
+                            await EvergineForegroundTask.Run(() =>
                             {
                                 Debug.WriteLine($"[RuntimeAssetManager] Loaded asset from {path}");
                                 this.RuntimeAssetLoaded(result);
-                            }
-                            else
-                            {
-                                Debug.WriteLine($"[RuntimeAssetManager] Failed to load asset from {path}");
-                                this.uIComponent.CurrentMode = UIMode.Init;
-                            }
-                        });
+                            });
+                        }
+                        else
+                        {
+                            Debug.WriteLine($"[RuntimeAssetManager] Failed to load asset from {path}");
+                            this.uIComponent.CurrentMode = UIMode.Init;
+                        }
                     }
                     catch (Exception ex)
                     {
