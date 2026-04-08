@@ -15,8 +15,11 @@ The application works as a laboratory environment where you can easily test Ever
 - **Images:**  
 `.bmp`, `.gif`, `.ico`, `.jpeg`, `.jpg`, `.ktx`, `.ktx2`, `.png`, `.webp`
 
+- **Videos:**  
+`.mp4`, `.avi`, `.mov`, `.mkv`
 
-![Gaussian Splatting demo](Screenshots/screenshot.jpg)
+
+![Screenshot](Screenshots/screenshot.jpg)
 
 ## Build and Run
 

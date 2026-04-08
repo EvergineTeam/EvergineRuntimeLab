@@ -17,7 +17,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
     {
         public override RuntimeLoaderType LoaderType { get; } = RuntimeLoaderType.Video;
 
-        public override string[] SupportedExtensions { get; } = new[] { ".mp4", ".avi" };
+        public override string[] SupportedExtensions { get; } = new[] { ".mp4", ".avi", ".mov", ".mkv" };
 
         private StandardMaterial material;
 
