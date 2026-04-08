@@ -19,11 +19,12 @@
   <!--Runtimes-->
   <ItemGroup>
     <PackageReference Include="Evergine.Runtimes.CAD" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.Image" Version="2025.10.21.8" />
     <PackageReference Include="Evergine.Runtimes.GLB" Version="2025.10.21.8" />
+    <PackageReference Include="Evergine.Runtimes.IFC" Version="2025.10.21.8" />
+    <PackageReference Include="Evergine.Runtimes.Image" Version="2025.10.21.8" />
+    <PackageReference Include="Evergine.Runtimes.OBJ" Version="2025.10.21.8" />
     <PackageReference Include="Evergine.Runtimes.STL" Version="2025.10.21.8" />
     <PackageReference Include="Evergine.Runtimes.USD" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.IFC" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.OBJ" Version="2025.10.21.8" />
+    <PackageReference Include="Evergine.Runtimes.Video" Version="2025.10.21.8" />
   </ItemGroup>
 </Project>

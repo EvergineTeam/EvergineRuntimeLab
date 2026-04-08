@@ -1,12 +1,8 @@
-﻿using Evergine.Components.Animation;
-using Evergine.Framework;
-using Evergine.Framework.Services;
+﻿using Evergine.Framework;
 using Evergine.Mathematics;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
@@ -19,6 +15,8 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
         CAD,
         [Description("Images")]
         Image,
+        [Description("Videos")]
+        Video,
         Unknown
     }
 

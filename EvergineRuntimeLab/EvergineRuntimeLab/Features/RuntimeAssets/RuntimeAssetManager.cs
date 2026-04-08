@@ -1,6 +1,7 @@
 ﻿using Evergine.Common.Attributes;
 using Evergine.Common.Attributes.Converters;
 using Evergine.Common.Graphics;
+using Evergine.Common.IO;
 using Evergine.Components.Animation;
 using Evergine.Framework;
 using Evergine.Framework.Graphics;
@@ -26,6 +27,9 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
     {
         [BindService]
         internal AssetsService AssetsService;
+
+        [BindService]
+        internal AssetsDirectory AssetsDirectory;
 
         [BindSceneManager]
         private RenderManager renderManager;
@@ -59,6 +63,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
             this.runtimeLoaders.Add(new IMGRuntimeLoader(this));
             this.runtimeLoaders.Add(new IFCRuntimeLoader(this));
             this.runtimeLoaders.Add(new CADRuntimeLoader(this));
+            this.runtimeLoaders.Add(new VideoRuntimeLoader(this));
 
             this.orbitCameraBehavior = this.Managers.EntityManager.FindFirstComponentOfType<OrbitCameraBehavior>();
             this.light = this.Managers.EntityManager.FindFirstComponentOfType<DirectionalLight>(isExactType: false);
