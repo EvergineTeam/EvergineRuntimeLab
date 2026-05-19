@@ -1,30 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <GenerateEvergineContent>True</GenerateEvergineContent>
     <GenerateEvergineAssets>False</GenerateEvergineAssets>
     <GenerateEvergineScenesCode>True</GenerateEvergineScenesCode>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Evergine.Common" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Components" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Framework" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Mathematics" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Bullet" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Targets" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.CodeScenes" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.ImGui" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Common" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Components" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Framework" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Mathematics" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Bullet" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Targets" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.CodeScenes" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.ImGui" Version="2026.5.14.713-nightly" />
   </ItemGroup>
   <!--Runtimes-->
   <ItemGroup>
-    <PackageReference Include="Evergine.Runtimes.CAD" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Runtimes.Image" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Runtimes.GLB" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Runtimes.STL" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Runtimes.USD" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Runtimes.IFC" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Runtimes.OBJ" Version="2025.10.21.59" />
-    <PackageReference Include="Evergine.Runtimes.Video" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Runtimes.CAD" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Runtimes.Image" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Runtimes.GLB" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Runtimes.STL" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Runtimes.USD" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Runtimes.IFC" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Runtimes.OBJ" Version="2026.5.14.713-nightly" />
+    <PackageReference Include="Evergine.Runtimes.Video" Version="2026.5.14.713-nightly" />
   </ItemGroup>
 </Project>

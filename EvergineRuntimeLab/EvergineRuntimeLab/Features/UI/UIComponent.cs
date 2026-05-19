@@ -34,7 +34,7 @@ namespace EvergineRuntimeLab.Features.UI
         private Clock clock;
 
         private Texture evergineLogoTex;
-        private ulong evergineLogo;
+        private ImTextureRef evergineLogo;
 
         public string Text;
 
@@ -82,8 +82,7 @@ namespace EvergineRuntimeLab.Features.UI
                             uv1: Vector2.One);
 
 
-                        Vector2 size;
-                        ImguiNative.igCalcTextSize(&size, this.Text, null, false, -1.0f);
+                        var size = ImguiNative.igCalcTextSize(this.Text, null, false, -1.0f);
 
                         position = new Vector2(
                             (io->DisplaySize.X - size.X) * 0.5f,
@@ -137,8 +136,7 @@ namespace EvergineRuntimeLab.Features.UI
                         ImguiNative.igBegin("MainWindow", open.Pointer(), ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoInputs | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoDecoration | ImGuiWindowFlags.NoTitleBar);
 
 
-                        Vector2 size;
-                        ImguiNative.igCalcTextSize(&size, this.Text, null, false, -1.0f);
+                        var size = ImguiNative.igCalcTextSize(this.Text, null, false, -1.0f);
 
                         var position = new Vector2(
                             20,
