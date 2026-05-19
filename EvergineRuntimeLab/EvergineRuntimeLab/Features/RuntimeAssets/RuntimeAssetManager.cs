@@ -178,6 +178,12 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets
             if (this.currentLoad?.IsValid == true)
             {
                 this.Managers.EntityManager.Remove(this.currentLoad.Entity);
+
+                foreach (var disposable in this.currentLoad.ObjectsToRemove)
+                {
+                    disposable.Dispose();
+                }
+
                 this.currentLoad = null;
             }
 

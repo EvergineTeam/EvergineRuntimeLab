@@ -7,24 +7,24 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Evergine.Common" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Components" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Framework" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Mathematics" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Bullet" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Targets" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.CodeScenes" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.ImGui" Version="2025.10.21.8" />
+    <PackageReference Include="Evergine.Common" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Components" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Framework" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Mathematics" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Bullet" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Targets" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.CodeScenes" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.ImGui" Version="2025.10.21.59" />
   </ItemGroup>
   <!--Runtimes-->
   <ItemGroup>
-    <PackageReference Include="Evergine.Runtimes.CAD" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.GLB" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.IFC" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.Image" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.OBJ" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.STL" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.USD" Version="2025.10.21.8" />
-    <PackageReference Include="Evergine.Runtimes.Video" Version="2025.10.21.8" />
+    <PackageReference Include="Evergine.Runtimes.CAD" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Runtimes.Image" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Runtimes.GLB" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Runtimes.STL" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Runtimes.USD" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Runtimes.IFC" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Runtimes.OBJ" Version="2025.10.21.59" />
+    <PackageReference Include="Evergine.Runtimes.Video" Version="2025.10.21.59" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿using Evergine.Framework;
 using Evergine.Mathematics;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,6 +26,8 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
         public bool IsValid;
         public Entity Entity;
         public BoundingBox? BoundingBox;
+        public List<IDisposable> ObjectsToRemove = new List<IDisposable>();
+        public List<Guid> AssetsToRemove = new List<Guid>();
     }
 
     public abstract class BaseRuntimeLoader

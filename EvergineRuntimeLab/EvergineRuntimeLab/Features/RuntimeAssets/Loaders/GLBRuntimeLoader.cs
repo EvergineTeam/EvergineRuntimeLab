@@ -1,4 +1,7 @@
-﻿using Evergine.Components.Animation;
+﻿using ACadSharp.Entities;
+using Evergine.Components.Animation;
+using Evergine.Framework;
+using Evergine.Framework.Graphics;
 using Evergine.Runtimes.GLB;
 using System;
 using System.Collections.Generic;
@@ -6,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.XPath;
 
 namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 {
@@ -15,7 +19,7 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
 
         public override string[] SupportedExtensions { get; } = new[] { ".glb" };
 
-        public GLBRuntimeLoader(RuntimeAssetManager runtimeAssetManager) 
+        public GLBRuntimeLoader(RuntimeAssetManager runtimeAssetManager)
             : base(runtimeAssetManager)
         {
         }
@@ -32,17 +36,43 @@ namespace EvergineRuntimeLab.Features.RuntimeAssets.Loaders
                 if (model != null)
                 {
                     var modelEntity = model.InstantiateModelHierarchy(this.runtimeAssetManager.AssetsService);
-
                     if (modelEntity != null)
                     {
                         result.IsValid = true;
                         result.Entity = modelEntity;
                         result.BoundingBox = model.BoundingBox;
+                        result.ObjectsToRemove.Add(model);
+
+                        this.AddRelatedAssets(result, model);
                     }
                 }
             }
 
             return result;
+        }
+
+        private void AddRelatedAssets(RuntimeLoadResult result, Model model)
+        {
+            foreach (var materialPair in model.Materials)
+            {
+                var matId = materialPair.Item2;
+                var material = this.runtimeAssetManager.AssetsService.Load<Material>(matId);
+                result.ObjectsToRemove.Add(material);
+
+                foreach (var textureSlot in material.TextureSlots)
+                {
+                    var texture = textureSlot.Texture;
+                    if (texture != null)
+                    {
+                        result.ObjectsToRemove.Add(texture);
+                        var sampler = texture.Sampler;
+                        if (sampler != null && !(sampler.Id == DefaultResourcesIDs.LinearClampSamplerID || sampler.Id == DefaultResourcesIDs.LinearWrapSamplerID))
+                        {
+                            result.ObjectsToRemove.Add(sampler);
+                        }
+                    }
+                }
+            }
         }
     }
 }
