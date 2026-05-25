@@ -7,24 +7,24 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Evergine.Common" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Components" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Framework" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Mathematics" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Bullet" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Targets" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.CodeScenes" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.ImGui" Version="2026.5.19.266-nightly" />
+    <PackageReference Include="Evergine.Common" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Components" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Framework" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Mathematics" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Bullet" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Targets" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.CodeScenes" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.ImGui" Version="2026.5.26.8" />
   </ItemGroup>
   <!--Runtimes-->
   <ItemGroup>
-    <PackageReference Include="Evergine.Runtimes.CAD" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Runtimes.Image" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Runtimes.GLB" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Runtimes.STL" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Runtimes.USD" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Runtimes.IFC" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Runtimes.OBJ" Version="2026.5.19.266-nightly" />
-    <PackageReference Include="Evergine.Runtimes.Video" Version="2026.5.19.266-nightly" />
+    <PackageReference Include="Evergine.Runtimes.CAD" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Runtimes.Image" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Runtimes.GLB" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Runtimes.STL" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Runtimes.USD" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Runtimes.IFC" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Runtimes.OBJ" Version="2026.5.26.8" />
+    <PackageReference Include="Evergine.Runtimes.Video" Version="2026.5.26.8" />
   </ItemGroup>
 </Project>
