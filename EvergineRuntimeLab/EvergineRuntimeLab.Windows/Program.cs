@@ -57,7 +57,7 @@ namespace EvergineRuntimeLab.Windows
             // Create Services
             var windowsSystem = new Evergine.Forms.FormsWindowsSystem();
             application.Container.RegisterInstance<WindowsSystem>(windowsSystem);
-            window = windowsSystem.CreateWindow("EvergineRuntimeLab - DX11", width, height);
+            window = windowsSystem.CreateWindow("EvergineRuntimeLab - DX12", width, height);
 
             ConfigureGraphicsContext(application, window);
 
@@ -161,7 +161,7 @@ namespace EvergineRuntimeLab.Windows
 
         private static void ConfigureGraphicsContext(Application application, Window window)
         {
-            GraphicsContext graphicsContext = new global::Evergine.DirectX11.DX11GraphicsContext();
+            GraphicsContext graphicsContext = new global::Evergine.DirectX12.DX12GraphicsContext();
             graphicsContext.CreateDevice();
             SwapChainDescription swapChainDescription = new SwapChainDescription()
             {
